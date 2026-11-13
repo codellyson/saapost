@@ -1,0 +1,24 @@
+{
+  "name": "saapost",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "test": "node --test --experimental-strip-types tests/*.test.ts",
+    "postinstall": "nuxt prepare",
+    "deploy": "nuxt generate && wrangler deploy"
+  },
+  "dependencies": {
+    "nuxt": "^4.6.4",
+    "vue": "^3.5.45",
+    "vue-router": "^5.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@vite-pwa/nuxt": "^1.1.1",
+    "tailwindcss": "^4.3.5"
+  }
+}

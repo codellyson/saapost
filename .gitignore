@@ -1,0 +1,8 @@
+node_modules
+.nuxt
+.output
+.data
+dist
+.wrangler
+.impeccable
+.DS_Store

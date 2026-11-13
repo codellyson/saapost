@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* The UI is written with zinc (neutrals) and lime (accent) classes. Both point at variables:
+   neutrals stay a quiet glass grey, the accent is set from the post's palette (utils/theme.ts). */
+@theme inline {
+  --font-sans: "Bricolage Grotesque", system-ui, sans-serif;
+  --color-zinc-100: var(--n100);
+  --color-zinc-200: var(--n200);
+  --color-zinc-300: var(--n300);
+  --color-zinc-400: var(--n400);
+  --color-zinc-500: var(--n500);
+  --color-zinc-600: var(--n600);
+  --color-zinc-700: var(--n700);
+  --color-zinc-800: var(--n800);
+  --color-zinc-900: var(--n900);
+  --color-zinc-950: var(--on-accent);
+  --color-lime-300: var(--accent);
+}
+
+:root {
+  --bg: #0a0a0c;
+  --n100: #f4f4f5; --n200: #e4e4e7; --n300: #d4d4d8; --n400: #b4b4bc; --n500: #8b8b95;
+  --n600: #5c5c66; --n700: #3f3f46; --n800: #27272a; --n900: #18181b;
+  /* defaults before the first render; replaced live from the palette */
+  --accent: #ff9ff3; --on-accent: #111111;
+}
+
+@layer components {
+  .label { @apply text-[11px] font-semibold uppercase tracking-[0.12em] text-zinc-500; }
+  .glass { @apply border border-white/10 bg-white/[0.07] backdrop-blur-xl; }
+  .glass-panel {
+    border: 1px solid rgb(255 255 255 / .09);
+    background: rgb(16 16 20 / .45);
+    backdrop-filter: blur(28px) saturate(150%);
+    -webkit-backdrop-filter: blur(28px) saturate(150%);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / .06);
+  }
+  /* stage: frosted glass with a faint dot grid, like a design canvas */
+  .stage {
+    background:
+      radial-gradient(rgb(255 255 255 / .08) 1px, transparent 1px) 0 0 / 22px 22px,
+      rgb(10 10 12 / .35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .grain-tile {
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E"),
+      var(--n800);
+  }
+  .accent-glow { box-shadow: 0 10px 40px -8px color-mix(in srgb, var(--accent) 60%, transparent); }
+}
+
+/* manipulation: no double-tap zoom, pinch zoom still works */
+html { background: var(--bg); color-scheme: dark; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+/* no body background: it would paint over the fixed ambient glow (negative z-index) */
+body { @apply text-zinc-100 antialiased; }

@@ -1,0 +1,8 @@
+{
+  "name": "saapost",
+  "compatibility_date": "2026-10-01",
+  // static site: `nuxt generate` writes .output/public, served as-is
+  "assets": { "directory": "./.output/public", "not_found_handling": "404-page", "html_handling": "drop-trailing-slash" },
+  "routes": [{ "pattern": "saapost.kreativekorna.com", "custom_domain": true }],
+  "workers_dev": false
+}
