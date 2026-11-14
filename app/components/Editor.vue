@@ -155,8 +155,8 @@ const tile = (on: boolean) => on ? 'ring-2 ring-lime-300 ring-offset-2 ring-offs
 <template>
   <div class="lg:grid lg:grid-cols-[minmax(0,1fr)_400px] lg:grid-rows-[auto_auto_1fr] lg:items-start lg:gap-x-6 lg:gap-y-4">
     <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <img v-if="ambient" :src="ambient" alt="" class="size-full scale-125 object-cover opacity-70 blur-[100px] saturate-150 transition-opacity duration-700">
-      <div class="absolute inset-0 bg-[color-mix(in_srgb,var(--bg)_55%,transparent)]" />
+      <img v-if="ambient" :src="ambient" alt="" class="size-full scale-125 object-cover opacity-50 blur-[100px] saturate-[1.8] transition-opacity duration-700">
+      <div class="absolute inset-0 bg-[color-mix(in_srgb,var(--bg)_72%,transparent)]" />
     </div>
     <!-- On phones stage, tools and actions fill one screen (svh: never hidden behind browser bars); favourites sit below -->
     <div class="flex h-[calc(100svh-6.5rem)] min-h-[500px] flex-col gap-3 lg:contents">

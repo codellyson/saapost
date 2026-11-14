@@ -5,7 +5,7 @@ import { contrast, luminance } from '../app/utils/text.ts'
 import { PALETTES } from '../app/utils/palettes.ts'
 
 const L = (h: string) => { const n = parseInt(h.slice(1), 16); return luminance(n >> 16, (n >> 8) & 255, n & 255) }
-const BG = luminance(10, 10, 12)
+const BG = luminance(44, 44, 46) // lightest page: white post glow under the veil
 
 test('every palette gives a readable accent and readable text on it', () => {
   for (const p of PALETTES) {
